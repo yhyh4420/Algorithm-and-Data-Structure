@@ -6,7 +6,6 @@ Created on Sat Oct  5 19:56:10 2024
 """
 #%%
 '''
-Stack 공부
 Stack는 쌓는거, LIFO(Last in, First Out)
 '''
 capacity = 10 # 스택의 용량
@@ -170,7 +169,7 @@ def hanoi_tower_f(n, start, temp, finish):
         print(f'원판 {n} : {start} -> {finish}')
         hanoi_tower(n-1, temp, start, finish)
 
-class hanoi_tower:
+class hanoi_tower: # class로 구현해보자
     def __init__(self, n, start, temp, finish):
         self.n = n
         self.start = start
@@ -190,10 +189,8 @@ class hanoi_tower:
         self.moving(self.n, self.start, self.temp, self.finish)
         return self.list
     
-a = hanoi_tower(100,'A','B','C')
+a = hanoi_tower(10,'A','B','C')
 len(a.answer())
-#%%
-
 
 
 
