@@ -55,9 +55,16 @@ class ArrayQueue:
     
     def display(self, msg):
         print(msg, end='[')
-        for i in range(self.size()):
+        for i in range(self.size()+1):
             print(self.array[(self.front+i) % self.capacity], end=' ')
         print(']')
+    
+    def enqueue2(self, item):
+        self.rear = (self.rear + 1) % self.capacity
+        self.array[self.rear] = item
+        
+        if self.isEmpty():
+            self.front = (self.front + 1) % self.capacity
 #%%
 import random
 q = ArrayQueue()
@@ -69,3 +76,19 @@ print('삭제순서 : [', end='')
 while not q.isEmpty():
     print(q.dequeue(), end=' ')
 print(']')
+#%%
+'''
+큐를 버퍼처럼 써보자
+버퍼란? 오래된 데이터부터 삭제하는 enqueue방식 가지는 큐
+ArrayQueue class의 enqueue2로 구현함
+'''
+
+a = ArrayQueue(8)
+
+a.display('초기상태 : ')
+for i in range(9):
+    a.enqueue2(i)
+    a.display('a 상태 : ')
+
+a.enqueue2(9)
+a.display('버퍼 적용 : ')
