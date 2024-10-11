@@ -98,7 +98,7 @@ a.display('버퍼 적용 : ')
 '''
 class CircularDeque(ArrayQueue): # CircularDeque = 자식, ArrayQueue = 부모
     def __init__(self, capacity=10):
-        super().__init__(capacity)  # 생성자는 상속 안되서 다시 만들어야 함. 부모의 생성자를 직접 호출
+        super().__init__(capacity)  # 생성자는 상속 안되서 다시 만들어야 함. 부모의 생성자를 직접 호출.
     
     def addFront(self, item):
         if not self.isFull():
